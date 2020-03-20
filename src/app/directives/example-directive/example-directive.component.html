@@ -1,0 +1,18 @@
+<div *ngIf="show; then comp else nothing"></div>
+
+<ng-template #comp>
+    <ul>
+        <li *ngFor="let color of colors; let o = odd; let e = even; let l = last" 
+        [style.color]="color" [ngClass]="{par: e && !l, impar: o && !l, ultimo: l}"
+        [ngSwitch]="color">
+            <span *ngSwitchCase="'blue'">I am blue</span>
+            <span *ngSwitchDefault>{{color}}</span>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #nothing> 
+    <p>Nothing</p>
+</ng-template>
+
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HelloService } from 'src/app/hello.service';
 
 @Component({
   selector: 'app-example-directive',
@@ -9,12 +10,14 @@ export class ExampleDirectiveComponent implements OnInit {
 
   colors: string[];
   show: boolean;
+  hello: string;
 
-  constructor() { }
+  constructor(private helloService: HelloService) { }
 
   ngOnInit(): void {
     this.colors = ['red', 'blue', 'green', 'orange', 'pink', 'purple'];
     this.show = true;
+    this.hello = this.helloService.getHello();
   }
 
 }

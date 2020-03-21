@@ -1,6 +1,7 @@
 <div *ngIf="show; then comp else nothing"></div>
 
 <ng-template #comp>
+    <p>{{hello}}</p>
     <ul>
         <li *ngFor="let color of colors; let o = odd; let e = even; let l = last" 
         [style.color]="color" [ngClass]="{par: e && !l, impar: o && !l, ultimo: l}"

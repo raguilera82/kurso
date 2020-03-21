@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HelloService } from 'src/app/hello.service';
 
 @Component({
@@ -12,12 +13,19 @@ export class ExampleDirectiveComponent implements OnInit {
   show: boolean;
   hello: string;
 
-  constructor(private helloService: HelloService) { }
+  constructor(
+    private helloService: HelloService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.colors = ['red', 'blue', 'green', 'orange', 'pink', 'purple'];
     this.show = true;
     this.hello = this.helloService.getHello();
+  }
+
+  navToDataBinding() {
+    this.router.navigate(['databinding']);
   }
 
 }

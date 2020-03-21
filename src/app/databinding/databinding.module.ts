@@ -5,7 +5,8 @@ import { ChildComponent } from './child/child.component';
 import { FatherComponent } from './father/father.component';
 
 const ROUTES: Routes = [
-  {path: 'databinding', component: FatherComponent}
+  {path: '', component: FatherComponent},
+  {path: 'child/:pepito', component: ChildComponent}
 ];
 
 @NgModule({
@@ -14,6 +15,5 @@ const ROUTES: Routes = [
     CommonModule,
     RouterModule.forChild(ROUTES)
   ],
-  exports: [FatherComponent]
 })
 export class DatabindingModule { }

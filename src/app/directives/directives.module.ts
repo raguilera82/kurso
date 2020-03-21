@@ -5,7 +5,7 @@ import { CustomPipesModule } from '../custom-pipes/custom-pipes.module';
 import { ExampleDirectiveComponent } from './example-directive/example-directive.component';
 
 const ROUTES: Routes = [
-  {path: 'directives', component: ExampleDirectiveComponent}
+  {path: '', component: ExampleDirectiveComponent}
 ];
 
 @NgModule({
@@ -15,6 +15,5 @@ const ROUTES: Routes = [
     CustomPipesModule,
     RouterModule.forChild(ROUTES)
   ],
-  exports: [ExampleDirectiveComponent]
 })
 export class DirectivesModule { }

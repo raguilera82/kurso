@@ -6,7 +6,7 @@
         [style.color]="color" [ngClass]="{par: e && !l, impar: o && !l, ultimo: l}"
         [ngSwitch]="color">
             <span *ngSwitchCase="'blue'">I am blue</span>
-            <span *ngSwitchDefault>{{color}}</span>
+            <span *ngSwitchDefault>{{color | decorator:'**' | uppercase}}</span>
         </li>
     </ul>
 </ng-template>

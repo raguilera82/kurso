@@ -14,7 +14,7 @@ export class ExampleDirectiveComponent implements OnInit {
 
   ngOnInit(): void {
     this.colors = ['red', 'blue', 'green', 'orange', 'pink', 'purple'];
-    this.show = false;
+    this.show = true;
   }
 
 }

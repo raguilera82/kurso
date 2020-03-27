@@ -1,5 +1,18 @@
 <form [formGroup]="loginForm">
     Username: <input type="text" formControlName="username">
+    <div *ngIf="loginForm.get('username').dirty && !loginForm.get('username').valid">
+        <span *ngIf="loginForm.get('username').hasError('required')">
+            Username is required
+        </span>
+        <span *ngIf="loginForm.get('username').hasError('userTaken')">
+            Username is taken
+        </span>
+    </div>
     Password: <input type="password" formControlName="password">
-    <button (click)="login()">Login</button>
+    <button (click)="login()" [disabled]="!loginForm.valid">Login</button>
 </form>
+
+{{ loginForm.status }}
+
+{{loginForm.value | json}}
+{{loginForm.valid}}

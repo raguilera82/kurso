@@ -14,6 +14,8 @@ const ROUTES: Routes =  [
   {path: '', redirectTo: 'directives', pathMatch: 'full'},
   {path: 'chuck', component: ChuckComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'users',
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)},
   {path: 'directives', canActivate: [AuthService],
     loadChildren: () => import('./directives/directives.module').then(m => m.DirectivesModule)},
   {path: 'databinding', canActivate: [AuthService],

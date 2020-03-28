@@ -13,4 +13,9 @@ export class ChuckService {
     return this.httpClient.get('http://localhost:3001/api/random-quote', {responseType: 'text'});
   }
 
+  getProtectedQuote(): Observable<string> {
+    return this.httpClient.get('http://localhost:3001/api/protected/random-quote',
+    {responseType: 'text'});
+  }
+
 }

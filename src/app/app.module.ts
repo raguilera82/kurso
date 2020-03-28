@@ -1,8 +1,10 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthService } from './auth.service';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './auth/login/login.component';
 import { ChuckModule } from './chuck/chuck.module';
@@ -29,7 +31,13 @@ const ROUTES: Routes =  [
     ChuckModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
